@@ -1,0 +1,16 @@
+<html>
+	<body>
+	<!-- Metoda replace ne mundeson qe nje vler specifike ta ndryshojme me nje tjeter-->
+		<button onclick="document.getElementById('p1').innerHTML = txt;">Try it</button>
+		
+		<p id="p1">Arianit Tershnjaku Dragash</p>
+		
+		<script>
+		// duhet pasur kujdes replace() eshte CASE SENSITIVE.
+			var str = document.getElementById("p1").innerHTML; 
+			var txt = str.replace("Dragash","Prizren");
+			// per ta larguar rregullen e casesensitive e perdorim /DRAGASH/i
+			// ose formen glogale /DRAGASH/g
+		</script>
+	</body>
+</html>

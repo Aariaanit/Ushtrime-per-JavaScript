@@ -1,0 +1,108 @@
+<html>
+	<head>
+	
+	</head>
+	<body>
+		<h2>Javascript Object</h2>
+		<p id='p1'></p>
+		<script>
+			//Objektet ne jeten reale: gjera te cilat kane veti te caktuara dhe kryejne funksione te caktuara.
+			//P.sh Laptopi eshte nje objekt ku ka veti te ndryshme si: Emri, ngjyra, pesha, hardisku, Ram etj.
+			//Secili laptop i ka vetit e njejta mirepo ju dallojne vlerat prej njeri tjetrit.
+			
+			//Me heret i kemi mesuar variablat.
+			var emriLaptopit = 'Dell';
+			
+			//Objektet ne javascript gjithashtu jane variabla. 
+			//Por dallimi eshte se objektet permbajne disa vlera te variablave.
+			
+			var laptopi ={	emri:'Dell', 
+							modeli:'E7440', 
+							ngjyra:'hiri', 
+							pesha:'2kg'}
+				//Rezultati mund te nxjerret duke e thirr objektin.vetin
+                document.write(laptopi+"<br>");
+				console.log(laptopi);
+            
+            document.write('Emri i laptopit eshte '+laptopi.emri+'<br>'); 
+            
+            document.getElementById('p1').innerHTML='Emri i laptopit eshte '+ laptopi.emri +', modeli eshte '
+				+laptopi.modeli + ', ngjyra ' + laptopi.ngjyra ;
+            
+            
+            //Objekti mund te thirret edhe ne keto dy menyra
+				document.write('Emri i laptopit eshte '+laptopi.emri+'<br>'); 
+            
+				document.write(laptopi['emri']+"<br>")
+				
+				//shembull tjeter
+			var personi ={	emri:'Arianit',
+							mbiemri:'Tershnjaku',
+							vendlindja:'Dragash',
+							gjatesia:1.75,
+						}
+						personi.mosha=25; //Objektit mund te i shtohen edhe veti te reja.
+						delete personi.gjatesia;
+				    document.write('Emri im eshte '+personi.emri+
+				' Mbiemri im eshte '+personi.mbiemri+ ' mosha ime eshte '+personi.mosha+' vendlindja ime eshte '+personi.vendlindja);
+				document.write("<br>")
+            //Nese deshirojme te e ndryshojme nje veti brenda objektit.
+            
+            personi.mosha= 30;
+
+			document.write("Mosha eshte: "+personi.mosha+"<br>");
+                        
+		</script>
+			<h2>Metodat e objekteve</h2>
+		<script>
+			//Metodat ne objekte jane funksione qe ju mundesojne objekteve te bejne diqka, ose te behet diqka ne objekt.
+			
+			var laptopi ={	emri:'Dell', 
+							modeli:'E7440', 
+							ngjyra:'hiri', 
+							pesha:'2kg',
+							lloji: function()
+							{
+								return this.emri +' '+ this.modeli+' '+this.pesha+' '+this.ngjyra;	 //Nese deshirojme te nxjerrim vlera permes metodes 'this'.
+							}
+						};
+						
+				//'this' eshte nje keyword qe i referohet objektit qe i perket. Ka vlera te ndyshme ne vartesi se ku perdoret.
+				//Nese perdoret si e vetme i referohet objekteve globale
+				//Tek shembulli jone 'this' eshte pronari qe e zoteror funksionin lloji.
+				document.write(laptopi.lloji());
+				//Dallimi ne mes te vetive dhe metodave eshte se vetit thirren pa kllapa ndersa metodat me kllapa
+			
+			
+		</script>
+			<h2>Konstruktoret e Objektit</h2>
+		<script>
+		//Shembujt me larte janë të kufizuara. Ata krijojnë vetëm objekte të vetme.
+		//Ndonjëherë na duhet një "plan" për krijimin e shumë objekteve të të njëjtit "tip".
+		//Mënyra për të krijuar një "lloj objekti" është përdorimi i një funksioni konstruktor objekti.
+		//Në shembullin e mësipërm, funksioni personi() është një funksion i ndërtuesit të objekteve.
+		//Objektet e të njëjtit lloj krijohen duke thirrur funksionin e konstruktorit me fjalen e re:
+		
+			function personi(x, y, z)
+			{
+				this.emri = x;
+				this.mbiemri = y;
+				this.mosha = z;
+			}
+			var a = new personi('arianit ','tershnjaku ',25);
+			document.write(a.emri + a.mbiemri + a.mosha+"<br>");
+			
+            var b = new personi('Lis ','Çollaku ',13);
+			document.write(b.emri + b.mbiemri + b.mosha);
+            
+		</script>
+	
+        
+        
+        
+        
+        
+        
+	</body>
+	
+</html>
